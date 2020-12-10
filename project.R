@@ -43,21 +43,21 @@ cmat <- confusionMatrix(data=predicted, reference=label.test)
 svml_accuracy <- cmat$overall[1]
 svml_accuracy
 
-#Naive Bayes
+# Naive Bayes
 model <- naiveBayes(x = data.train, y = label.train)
 predicted <- predict(model, data.test)
 cmat <- confusionMatrix(data=predicted, reference=label.test)
 nb_accuracy <- cmat$overall[1]
 nb_accuracy
 
-#CART
+# Decision Tree
 model <- rpart(label.train ~ ., data = data.train)
 predicted <- predict(model, data.test, type="class")
 cmat <- confusionMatrix(data=predicted, reference=label.test)
 cart_accuracy <- cmat$overall[1]
 cart_accuracy
 
-#Random Forest
+# Random Forest
 model <- randomForest(x = data.train, y = label.train)
 predicted <- predict(model, data.test)
 cmat <- confusionMatrix(data=predicted, reference=label.test)
